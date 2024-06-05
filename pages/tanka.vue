@@ -7,21 +7,25 @@
           removable
           class="text-caption"
           :label="route.query.tag"
-          @remove="() => $router.push('/posts')"
+          @remove="() => $router.push('/tanka')"
         />
       </div>
       <!-- PC向け -->
       <div class="q-pa-lg row items-start q-gutter-lg gt-sm">
-        <q-card v-for="post in posts" :href="post.url" style="width: 280px">
+        <q-card
+          v-for="tanka in tankas"
+          :href="tanka.postUrl"
+          style="width: 280px"
+        >
           <q-card-section>
-            <a :href="post.url" class="text-bold text-black no-decoration">
-              {{ post.title }}
+            <a :href="tanka.postUrl" class="text-bold text-black no-decoration">
+              {{ tanka.tanka }}
             </a>
             <div class="q-mt-xs text-grey-8">
-              <span class="text-black">{{ post.date }}</span> -
-              {{ post.postTitle }}
+              <span class="text-black">{{ tanka.postDate }}</span> -
+              {{ tanka.postTitle }}
             </div>
-            <NuxtLink :to="`/posts?tag=${tag}`" v-for="tag in post.tags">
+            <NuxtLink :to="`/tanka?tag=${tag}`" v-for="tag in tanka.tags">
               <q-chip class="text-caption q-ml-none" :label="tag" />
             </NuxtLink>
           </q-card-section>
@@ -34,19 +38,19 @@
       <q-list separator>
         <q-item
           class="q-gutter-x-md items-center bg-white"
-          v-for="post in posts"
+          v-for="tanka in tankas"
         >
           <div class="col">
-            <a :href="post.url" class="no-decoration">
+            <a :href="tanka.postUrl" class="no-decoration">
               <div class="text-black text-bold">
-                {{ post.title }}
+                {{ tanka.tanka }}
               </div>
               <div class="q-mt-xs text-grey-8">
-                <span class="text-black">{{ post.date }}</span> -
-                {{ post.postTitle }}
+                <span class="text-black">{{ tanka.postDate }}</span> -
+                {{ tanka.postTitle }}
               </div>
             </a>
-            <NuxtLink :to="`/posts?tag=${tag}`" v-for="tag in post.tags">
+            <NuxtLink :to="`/tanka?tag=${tag}`" v-for="tag in tanka.tags">
               <q-chip class="text-caption q-ml-none" :label="tag" />
             </NuxtLink>
           </div>
@@ -61,36 +65,51 @@
 definePageMeta({
   layout: "default",
 });
-
+type Tanka = {
+  tanka: string;
+  tags: string[];
+  postTitle?: string;
+  postUrl?: string;
+  postDate?: string;
+};
 type Post = {
   title: string;
-  date: string;
   url: string;
-  postTitle: string;
-  tags: string[];
+  date: string;
+  tankas: Tanka[];
 };
 import { is } from "quasar";
 // TODO 一旦無視。後でちゃんと対応したい #6
 // @ts-ignore
-import tankaJson from "./assets/tanka.json";
+import tankaPostsJson from "./assets/tankaPosts.json";
 const posts: Ref<Post[]> = ref([]);
+const tankas: Ref<Tanka[]> = ref([]);
 const isValidQuery = ref(false);
 const route = useRoute();
 
 watchEffect(() => {
-  posts.value = [];
+  tankas.value = [];
+  const allTankas = [];
+  for (const post of tankaPostsJson) {
+    for (const tanka of post.tankas) {
+      tanka.postTitle = post.title;
+      tanka.postUrl = post.url;
+      tanka.postDate = post.date;
+      allTankas.push(tanka);
+    }
+  }
   if (!route.query.tag) {
-    posts.value = tankaJson;
+    tankas.value = allTankas;
     isValidQuery.value = false;
     return;
   }
-  for (const tanka of tankaJson) {
+  for (const tanka of allTankas) {
     if (tanka.tags.includes(route.query.tag)) {
-      posts.value.push(tanka);
+      tankas.value.push(tanka);
     }
   }
-  if (posts.value.length === 0) {
-    posts.value = tankaJson;
+  if (tankas.value.length === 0) {
+    tankas.value = allTankas;
     isValidQuery.value = false;
   } else {
     isValidQuery.value = true;
