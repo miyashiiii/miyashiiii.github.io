@@ -62,6 +62,8 @@ watchEffect(() => {
     tab.value = "posts";
   } else if (route.path === "/works") {
     tab.value = "works";
+  } else if (route.path.startsWith("/tools")) {
+    tab.value = "tools";
   }
 });
 </script>
