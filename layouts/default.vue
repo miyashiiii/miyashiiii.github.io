@@ -9,3 +9,10 @@
     <AppFooter />
   </q-layout>
 </template>
+
+<script setup lang="ts">
+useHead({
+  titleTemplate: (title) =>
+    title ? `${title} | miyashiiii portfolio` : "miyashiiii portfolio",
+});
+</script>

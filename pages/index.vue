@@ -20,13 +20,13 @@
       <!-- SNSリンク -->
       <div class="row justify-center">
         <div v-for="(link, index) in links" :key="index" class="q-mx-md">
-          <a :href="link.url">
+          <NuxtLink :to="link.url">
             <q-img
               no-spinner
               :src="link.icon"
               :width="link.small ? '28px' : '32px'"
             />
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>

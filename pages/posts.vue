@@ -13,8 +13,8 @@
       <!-- PC向け -->
       <div class="q-pa-lg row items-start q-gutter-lg gt-sm">
         <q-card v-for="post in posts" :href="post.url" style="width: 280px">
-          <a
-            :href="post.url"
+          <NuxtLink
+            :to="post.url"
             class="row items-center justify-center"
             style="height: 120px"
           >
@@ -31,11 +31,11 @@
               style="height: 50px; width: 50px"
               no-spinner
             />
-          </a>
+          </NuxtLink>
           <q-card-section>
-            <a :href="post.url" class="text-bold text-black no-decoration">
+            <NuxtLink :to="post.url" class="text-bold text-black no-decoration">
               {{ post.title }}
-            </a>
+            </NuxtLink>
             <div class="q-mt-xs text-grey-8">
               <span class="text-black">{{ post.date }}</span> -
               {{ getServiceNameFromUrl(post.url) }}
@@ -55,7 +55,7 @@
           class="q-gutter-x-md items-center bg-white"
           v-for="post in posts"
         >
-          <a :href="post.url">
+          <NuxtLink :to="post.url">
             <div
               style="width: 120px; height: 80px"
               class="row justify-center items-center bg-grey-3"
@@ -74,9 +74,9 @@
                 no-spinner
               />
             </div>
-          </a>
+          </NuxtLink>
           <div class="col">
-            <a :href="post.url" class="no-decoration">
+            <NuxtLink :to="post.url" class="no-decoration">
               <div class="text-black text-bold">
                 {{ post.title }}
               </div>
@@ -84,7 +84,7 @@
                 <span class="text-black">{{ post.date }}</span> -
                 {{ getServiceFromUrl(post.url).name }}
               </div>
-            </a>
+            </NuxtLink>
             <NuxtLink :to="`/posts?tag=${tag}`" v-for="tag in post.tags">
               <q-chip class="text-caption q-ml-none" :label="tag" />
             </NuxtLink>

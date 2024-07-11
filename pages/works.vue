@@ -11,18 +11,21 @@
           :style="$q.screen.lt.md ? 'width:75%' : 'width: 280px;'"
           class=""
         >
-          <a :href="post.url" class="row items-center justify-center bg-grey-2">
+          <NuxtLink
+            :to="post.url"
+            class="row items-center justify-center bg-grey-2"
+          >
             <q-img
               :src="post.thumbnail"
               fit="scale-down"
               style="height: 150px"
               no-spinner
             />
-          </a>
+          </NuxtLink>
           <q-card-section>
-            <a :href="post.url" class="text-bold text-black no-decoration">
+            <NuxtLink :to="post.url" class="text-bold text-black no-decoration">
               {{ post.title }}
-            </a>
+            </NuxtLink>
             <div class="q-mt-xs text-grey-8">{{ post.subtitle }}</div>
             <q-chip
               v-for="tag in post.tags"
