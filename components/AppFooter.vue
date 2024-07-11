@@ -33,7 +33,7 @@
         >
           <div class="col q-py-xs footer-tab">
             <div class="row justify-center">
-              <q-icon name="fa-brands fa-github" size="sm" />
+              <q-icon name="fa-brands fa-git-alt" size="sm" />
             </div>
             <div class="text-center">Source <q-icon name="open_in_new" /></div>
           </div>
