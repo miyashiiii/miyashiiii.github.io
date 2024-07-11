@@ -97,9 +97,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "default",
-});
+definePageMeta({ layout: "default" });
+useHead({ title: "Posts" });
 
 type Post = {
   title: string;

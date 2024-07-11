@@ -34,9 +34,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "default",
-});
+definePageMeta({ layout: "default" });
 
 const imagePath = "/miyashiiii.png";
 const links = [

@@ -38,9 +38,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "default",
-});
+definePageMeta({ layout: "default" });
+useHead({ title: "Works" });
 
 const works = [
   {
