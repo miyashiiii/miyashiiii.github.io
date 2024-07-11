@@ -29,6 +29,7 @@
         <NuxtLink
           to="https://github.com/miyashiiii/miyashiiii.github.io"
           class="no-decoration text-white"
+          target="_blank"
         >
           <div class="col q-py-xs footer-tab">
             <div class="row justify-center">
