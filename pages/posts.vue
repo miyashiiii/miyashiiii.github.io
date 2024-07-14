@@ -144,26 +144,32 @@ type Service = {
   icon: string;
 };
 const getServiceFromUrl = (url: string): Service => {
-  if (url.includes("hatenablog")) {
-    return { name: "はてなブログ", icon: "/sns/hatenablog.svg" };
-  } else if (url.includes("qiita")) {
-    return { name: "Qiita", icon: "/sns/qiita.png" };
-  } else if (url.includes("note")) {
-    return { name: "note", icon: "/sns/note.png" };
-  } else if (url.includes("zenn")) {
-    return { name: "Zenn", icon: "/sns/zenn.png" };
-  } else if (url.includes("docswell")) {
-    return { name: "Docswell", icon: "/sns/docswell.png" };
-  } else if (url.includes("sizu.me")) {
-    return { name: "しずかなインターネット", icon: "/sns/sizu.png" };
+  const services = [
+    {
+      name: "はてなブログ",
+      icon: "/sns/hatenablog.svg",
+      pattern: "hatenablog",
+    },
+    { name: "Qiita", icon: "/sns/qiita.png", pattern: "qiita" },
+    { name: "note", icon: "/sns/note.png", pattern: "note" },
+    { name: "Zenn", icon: "/sns/zenn.png", pattern: "zenn" },
+    { name: "Docswell", icon: "/sns/docswell.png", pattern: "docswell" },
+    {
+      name: "しずかなインターネット",
+      icon: "/sns/sizu.png",
+      pattern: "sizu.me",
+    },
+  ];
+
+  const service = services.find((service) => url.includes(service.pattern));
+  if (service) {
+    return { name: service.name, icon: service.icon };
   } else {
     throw new Error("invalid url");
   }
 };
-const getServiceNameFromUrl = (url: string): string => {
-  return getServiceFromUrl(url).name;
-};
-const getServiceIconFromUrl = (url: string): string => {
-  return getServiceFromUrl(url).icon;
-};
+const getServiceNameFromUrl = (url: string): string =>
+  getServiceFromUrl(url).name;
+const getServiceIconFromUrl = (url: string): string =>
+  getServiceFromUrl(url).icon;
 </script>
