@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest run",
+    "test": "vitest run --dir tests",
     "e2e": "npx playwright test --project chromium",
     "e2eall": "npx playwright test"
   },
