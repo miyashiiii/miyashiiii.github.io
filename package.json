@@ -26,6 +26,6 @@
     "vue-router": "^4.4.0"
   },
   "dependencies": {
-    "playwright": "^1.45.2"
+    "playwright": "^1.45.3"
   }
 }
