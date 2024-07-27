@@ -21,211 +21,149 @@
     "title": "easy-thumbnailsで発生するInvalidImageFormatErrorの調査メモ",
     "url": "https://miyashiiii.hatenablog.jp/entry/2024/04/16/222300",
     "date": "2024/04/16",
-    "tags": [
-      "Python",
-      "Django"
-    ]
+    "tags": ["Python", "Django"]
   },
   {
     "title": "分割キーボード BAROCCO MD600v3 RGB を買った話",
     "url": "https://miyashiiii.hatenablog.jp/entry/2023/12/21/000000",
     "date": "2023/12/21",
     "img": "20231221_md600v3.jpg",
-    "tags": [
-      "キーボード"
-    ]
+    "tags": ["キーボード"]
   },
   {
     "title": "admindocsでDjangoプロジェクトのドキュメントを自動生成する",
     "url": "https://qiita.com/miyashiiii/items/9ac846d3c55f39407a8a",
     "date": "2023/12/13",
     "img": "20231213_admindocs.avif",
-    "tags": [
-      "Django"
-    ]
+    "tags": ["Django"]
   },
   {
     "title": "PyCon APAC 2023に参加しました",
     "url": "https://miyashiiii.hatenablog.jp/entry/2023/10/30/224343",
     "date": "2023/10/30",
     "img": "20231030_pyconapac.jpg",
-    "tags": [
-      "Python",
-      "イベント参加"
-    ]
+    "tags": ["Python", "イベント参加"]
   },
   {
     "title": "GraphQLライブラリStrawberryのDjangoプロジェクトへの適用事例",
     "url": "https://www.docswell.com/s/miyashiiii/Z98287-strawberry-django-casestudy",
     "date": "2023/09/23",
     "img": "20231009_strawberry_django.webp",
-    "tags": [
-      "Python",
-      "Django",
-      "GraphQL",
-      "Strawberry",
-      "登壇資料"
-    ]
+    "tags": ["Python", "Django", "GraphQL", "Strawberry", "登壇資料"]
   },
   {
     "title": "PRODUCTION READY GRAPHQLを読む: 2章. GraphQLスキーマ設計 ①",
     "url": "https://miyashiiii.hatenablog.jp/entry/2023/09/08/093100",
     "date": "2023/09/08",
     "img": "production_ready_graphql.jpeg",
-    "tags": [
-      "Python",
-      "GraphQL",
-      "Strawberry"
-    ]
+    "tags": ["Python", "GraphQL", "Strawberry"]
   },
   {
     "title": "PRODUCTION READY GRAPHQLを読む: 1章. GraphQL入門",
     "url": "https://miyashiiii.hatenablog.jp/entry/2023/07/22/213724",
     "date": "2023/07/22",
     "img": "production_ready_graphql.jpeg",
-    "tags": [
-      "Python",
-      "GraphQL",
-      "Strawberry"
-    ]
+    "tags": ["Python", "GraphQL", "Strawberry"]
   },
   {
     "title": "Strawberry Djangoを使ってDjangoのChoicesを自動でGraphQLのEnum化する",
     "url": "https://qiita.com/miyashiiii/items/f93c4c57a51dbf8ecfd7",
     "date": "2023/07/20",
-    "tags": [
-      "Python",
-      "Django",
-      "GraphQL",
-      "Strawberry"
-    ]
+    "tags": ["Python", "Django", "GraphQL", "Strawberry"]
   },
   {
     "title": "初めてのFlutterアプリを開発・リリースするまでに使用したツール・パッケージ",
     "url": "https://zenn.dev/miyashiiii/articles/dbb4c1fd7ba226",
     "date": "2021/08/16",
     "img": "20210816_flutter_app.png",
-    "tags": [
-      "個人開発",
-      "Dart",
-      "Flutter"
-    ]
+    "tags": ["個人開発", "Dart", "Flutter"]
   },
   {
     "title": "[Dart] リストから重みつきrandom choice",
     "url": "https://qiita.com/miyashiiii/items/9fedc64cd455322c8935",
     "date": "2021/07/13",
-    "tags": [
-      "Dart"
-    ]
+    "tags": ["Dart"]
   },
   {
     "title": "スクショをスマホ画像にはめ込んでストア掲載用画像を作成する",
     "url": "https://note.com/mysh_iiii/n/nb3998ab4eb8e",
     "date": "2021/07/12",
     "img": "20210712_sp_store_image.webp",
-    "tags": [
-      "個人開発"
-    ]
+    "tags": ["個人開発"]
   },
   {
     "title": "【M1 mac】Android Studioでインストールしたエミュレータが応答しない",
     "url": "https://qiita.com/miyashiiii/items/a296d667bbd4a6010476",
     "date": "2021/07/05",
-    "tags": [
-      "Android",
-      "macOS"
-    ]
+    "tags": ["Android", "macOS"]
   },
   {
     "title": "デュアルキーボード環境を構築した話",
     "url": "https://miyashiiii.hatenablog.jp/entry/2023/07/22/184023",
     "date": "2021/02/13",
     "img": "20210213_dual_keyboard.png",
-    "tags": [
-      "キーボード"
-    ]
+    "tags": ["キーボード"]
   },
   {
     "title": "IceCream使い方まとめ",
     "url": "https://qiita.com/miyashiiii/items/c0c4c709e096937df906",
     "date": "2021/01/28",
-    "tags": [
-      "Python"
-    ]
+    "tags": ["Python"]
   },
   {
     "title": "byobu操作まとめ",
     "url": "https://qiita.com/miyashiiii/items/90ba726dd331ae103b7b",
     "date": "2019/04/16",
-    "tags": [
-      "Linux"
-    ]
+    "tags": ["Linux"]
   },
   {
     "title": "Pipfile/Pipfile.lockの必要性 -requirements.txtを用いる手法と比較して-",
     "url": "https://qiita.com/miyashiiii/items/92e6f745a940c4df2ddd",
     "date": "2019/03/14",
-    "tags": [
-      "Python"
-    ]
+    "tags": ["Python"]
   },
   {
     "title": "codesignは、キーチェーンに含まれるキー\"access\"へアクセスしようとしています",
     "url": "https://qiita.com/miyashiiii/items/9351d881edf7da897607",
     "date": "2018/12/04",
     "img": "20181204_codesign.avif",
-    "tags": [
-      "macOS"
-    ]
+    "tags": ["macOS"]
   },
   {
     "title": "Vue.jsのプロジェクトでeslintのバージョンをv3→v4に上げようとしてハマったこと",
     "url": "https://qiita.com/miyashiiii/items/5a96b2acedf732bd78a1",
     "date": "2018/11/26",
-    "tags": [
-      "Vue"
-    ]
+    "tags": ["Vue"]
   },
   {
     "title": "pythonで複数のコンストラクタを定義したい",
     "url": "https://qiita.com/miyashiiii/items/9dcb2114ac0843a73fce",
     "date": "2018/11/12",
-    "tags": [
-      "Python"
-    ]
+    "tags": ["Python"]
   },
   {
     "title": "kotlinで24時以降の時刻文字列をいい感じに扱う",
     "url": "https://qiita.com/miyashiiii/items/ab6e0bd88dabfce2ac66",
     "date": "2018/10/20",
-    "tags": [
-      "Kotlin"
-    ]
+    "tags": ["Kotlin"]
   },
   {
     "title": "20代エンジニアのためのプログラマー勉強法 ～Matzがおくる「生涯エンジニア」になるためのプログラミングとの向き合い方～",
     "url": "https://qiita.com/miyashiiii/items/ec19a1b50308133e528e",
     "date": "2018/10/01",
     "img": "20181001_matz.png",
-    "tags": [
-      "イベント参加"
-    ]
+    "tags": ["イベント参加"]
   },
   {
     "title": "pycharmでpipを実行するとAttributeError",
     "url": "https://qiita.com/miyashiiii/items/1adaed711f9583de6002",
     "date": "2018/04/21",
-    "tags": [
-      "Python"
-    ]
+    "tags": ["Python"]
   },
   {
     "title": "【Python】and演算子、or演算子はboolではなく評価したオブジェクト自身を返している",
     "url": "https://qiita.com/miyashiiii/items/744d3df38ff741ebfed5",
     "date": "2018/03/04",
-    "tags": [
-      "Python"
-    ]
+    "tags": ["Python"]
   }
 ]

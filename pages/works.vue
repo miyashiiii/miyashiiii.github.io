@@ -9,7 +9,7 @@
           v-for="post in works"
           :href="post.url"
           :style="$q.screen.lt.md ? 'width:75%' : 'width: 280px;'"
-          class=""
+          :key="post.title"
         >
           <NuxtLink
             :to="post.url"
@@ -32,6 +32,7 @@
               class="text-caption q-ml-none"
               :label="tag"
               :ripple="false"
+              :key="tag"
             />
           </q-card-section>
         </q-card>

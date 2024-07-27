@@ -6,13 +6,18 @@
         <q-chip
           removable
           class="text-caption"
-          :label="route.query.tag"
+          :label="route.query.tag?.toString()"
           @remove="() => $router.push('/posts')"
         />
       </div>
       <!-- PC向け -->
       <div class="q-pa-lg row items-start q-gutter-lg gt-sm">
-        <q-card v-for="post in posts" :href="post.url" style="width: 280px">
+        <q-card
+          v-for="post in posts"
+          :href="post.url"
+          style="width: 280px"
+          :key="post.title"
+        >
           <NuxtLink
             :to="post.url"
             class="row items-center justify-center"
@@ -40,7 +45,11 @@
               <span class="text-black">{{ post.date }}</span> -
               {{ getServiceNameFromUrl(post.url) }}
             </div>
-            <NuxtLink :to="`/posts?tag=${tag}`" v-for="tag in post.tags">
+            <NuxtLink
+              :to="`/posts?tag=${tag}`"
+              v-for="tag in post.tags"
+              :key="tag"
+            >
               <q-chip class="text-caption q-ml-none" :label="tag" />
             </NuxtLink>
           </q-card-section>
@@ -54,6 +63,7 @@
         <q-item
           class="q-gutter-x-md items-center bg-white"
           v-for="post in posts"
+          :key="post.title"
         >
           <NuxtLink :to="post.url">
             <div
@@ -85,7 +95,11 @@
                 {{ getServiceFromUrl(post.url).name }}
               </div>
             </NuxtLink>
-            <NuxtLink :to="`/posts?tag=${tag}`" v-for="tag in post.tags">
+            <NuxtLink
+              :to="`/posts?tag=${tag}`"
+              v-for="tag in post.tags"
+              :key="tag"
+            >
               <q-chip class="text-caption q-ml-none" :label="tag" />
             </NuxtLink>
           </div>
@@ -107,10 +121,8 @@ type Post = {
   tags: string[];
   img?: string;
 };
-import { is } from "quasar";
-// TODO 一旦無視。後でちゃんと対応したい #6
-// @ts-ignore
-import postsJson from "./assets/posts.json";
+
+import postsJson from "@/assets/posts.json";
 const posts: Ref<Post[]> = ref([]);
 const isValidQuery = ref(false);
 const route = useRoute();
@@ -123,7 +135,7 @@ watchEffect(() => {
     return;
   }
   for (const post of postsJson) {
-    if (post.tags.includes(route.query.tag)) {
+    if (post.tags.includes(route.query.tag.toString())) {
       posts.value.push(post);
     }
   }
