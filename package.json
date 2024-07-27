@@ -33,9 +33,7 @@
     "vue": "^3.4.34",
     "vue-router": "^4.4.0"
   },
-  "overrides": {
-    "vite": {
-      "rollup": "npm:@rollup/wasm-node"
-    }
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.19.1"
   }
 }
