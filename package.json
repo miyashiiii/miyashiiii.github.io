@@ -32,5 +32,10 @@
     "vitest": "^2.0.4",
     "vue": "^3.4.34",
     "vue-router": "^4.4.0"
+  },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
   }
 }
