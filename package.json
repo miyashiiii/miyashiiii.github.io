@@ -30,7 +30,7 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
     "vitest": "^2.0.5",
-    "vue": "^3.4.36",
+    "vue": "^3.4.37",
     "vue-router": "^4.4.3"
   },
   "optionalDependencies": {
