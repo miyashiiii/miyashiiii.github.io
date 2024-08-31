@@ -34,8 +34,27 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 definePageMeta({ layout: "default" });
 
+const { update } = useLoading();
+update(true);
+
+const isLoadingAnimation = ref(true);
+const isMounted = ref(false);
+onMounted(() => {
+  isMounted.value = true;
+});
+
+setTimeout(() => {
+  isLoadingAnimation.value = false;
+}, 1000);
+
+watchEffect(() => {
+  if (isMounted.value && !isLoadingAnimation.value) {
+    update(false);
+  }
+});
 const imagePath = "/miyashiiii.png";
 const links = [
   {
