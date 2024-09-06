@@ -14,7 +14,7 @@
     "lint": "npx eslint"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
+    "@eslint/js": "^9.10.0",
     "@playwright/test": "^1.47.0",
     "@quasar/extras": "^1.16.11",
     "@types/node": "^22.5.1",
