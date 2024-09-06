@@ -19,7 +19,7 @@
     "@quasar/extras": "^1.16.11",
     "@types/node": "^22.5.1",
     "eslint": "^9.9.1",
-    "eslint-plugin-vue": "^9.27.0",
+    "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.8.0",
     "nuxt": "^3.12.4",
     "nuxt-quasar-ui": "^2.1.4",
