@@ -22,7 +22,7 @@
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.8.0",
     "nuxt": "^3.12.4",
-    "nuxt-quasar-ui": "^2.1.4",
+    "nuxt-quasar-ui": "^2.1.5",
     "playwright": "^1.47.1",
     "prettier": "^3.3.3",
     "quasar": "^2.16.9",
