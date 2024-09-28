@@ -6,6 +6,37 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
+    groups:
+      test-lint-minor-patch:
+        patterns:
+          - 'vitest'
+          - 'playwright*'
+          - '*eslint*'
+          - 'globals'
+          - 'types/*'
+          - 'typescript*'
+          - 'prettier'
+        update-types:
+          - 'minor'
+          - 'patch'
+      ts-nuxt-minor:
+        patterns:
+          - 'typescript'
+          - 'nuxt*'
+          - 'vue*'
+          - '*quasar*'
+          - 'sass'
+        update-types:
+          - 'minor'
+      ts-nuxt-patch:
+        patterns:
+          - 'typescript'
+          - 'nuxt*'
+          - 'vue*'
+          - '*quasar*'
+          - 'sass'
+        update-types:
+          - 'patch'
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
