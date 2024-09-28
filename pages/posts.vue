@@ -11,7 +11,7 @@
         />
       </div>
       <!-- PC向け -->
-      <div class="q-pa-lg row items-start q-gutter-lg gt-sm">
+      <div class="q-pa-lg row items-stretch q-gutter-lg gt-sm">
         <q-card
           v-for="post in posts"
           :href="post.url"
@@ -20,7 +20,7 @@
         >
           <NuxtLink
             :to="post.url"
-            class="row items-center justify-center"
+            class="row items-center justify-center bg-grey-3"
             style="height: 120px"
           >
             <q-img
