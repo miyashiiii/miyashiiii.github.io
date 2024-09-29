@@ -2,7 +2,7 @@
   <q-layout view="hHh lpr fFf">
     <Transition name="fade">
       <div
-        v-show="isLoading"
+        v-show="isLoading && isIndexPage"
         class="fixed-full z-max bg-white items-center flex justify-center"
       >
         <q-spinner-oval color="primary" size="lg" />
@@ -19,12 +19,17 @@
 </template>
 
 <script setup lang="ts">
+import { useLoading } from "/composables/loading";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+
 useHead({
   titleTemplate: (title) =>
     title ? `${title} | miyashiiii portfolio` : "miyashiiii portfolio",
 });
 const { isLoading } = useLoading();
-// const isLoading = ref(true);
+const route = useRoute();
+const isIndexPage = computed(() => route.name === "index");
 </script>
 
 <style scoped>

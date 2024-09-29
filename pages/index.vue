@@ -35,10 +35,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useLoading } from "/composables/loading";
 definePageMeta({ layout: "default" });
 
 const { update } = useLoading();
-update(true);
 
 const isLoadingAnimation = ref(true);
 const isMounted = ref(false);
