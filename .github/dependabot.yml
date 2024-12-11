@@ -10,10 +10,10 @@ updates:
       test-lint-minor-patch:
         patterns:
           - 'vitest'
-          - 'playwright*'
+          - '*playwright*'
           - '*eslint*'
           - 'globals'
-          - 'types/*'
+          - '*types/*'
           - 'typescript*'
           - 'prettier'
         update-types:
