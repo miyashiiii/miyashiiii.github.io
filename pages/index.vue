@@ -39,7 +39,7 @@ definePageMeta({ layout: "default" });
 const imagePath = "/miyashiiii.png";
 const links = [
   {
-    url: "https://twitter.com/mysh_iiii",
+    url: "https://twitter.com/miyashiiii_x",
     icon: "/sns/x.png",
     small: true,
   },
