@@ -1,12 +1,8 @@
 <template>
-  <q-header class="text-black row justify-center bg-grey-3">
-    <!-- PC向け -->
-    <q-toolbar
-      :style="$q.screen.gt.sm ? 'width:900px' : ''"
-      :class="$q.screen.gt.sm ? '' : 'text-center'"
-    >
-      <q-toolbar-title>
-        <NuxtLink to="/" class="text-bold">
+  <q-header class="bg-grey-3">
+    <q-toolbar class="" >
+      <q-toolbar-title class="text-center">
+        <NuxtLink to="/">
           <q-img src="/logo.png" style="width: 128px" no-spinner />
         </NuxtLink>
       </q-toolbar-title>
