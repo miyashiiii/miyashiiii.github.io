@@ -9,7 +9,7 @@
       <q-btn
         flat
         round
-        icon="fa-brands fa-github"
+        icon="fa-git-alt"
         color="grey-7"
         href="https://github.com/miyashiiii/miyashiiii.github.io"
         target="_blank"
