@@ -26,18 +26,6 @@
             Works
           </q-tab>
         </NuxtLink>
-        <NuxtLink
-          to="https://github.com/miyashiiii/miyashiiii.github.io"
-          class="no-decoration text-white"
-          target="_blank"
-        >
-          <div class="col q-py-xs footer-tab">
-            <div class="row justify-center">
-              <q-icon name="fa-brands fa-git-alt" size="sm" />
-            </div>
-            <div class="text-center">Source <q-icon name="open_in_new" /></div>
-          </div>
-        </NuxtLink>
       </q-tabs>
     </q-toolbar>
   </q-footer>
