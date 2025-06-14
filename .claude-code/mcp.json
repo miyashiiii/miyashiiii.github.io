@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "fetch": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "env": {}
+    }
+  }
+}
