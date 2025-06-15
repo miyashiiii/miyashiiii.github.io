@@ -35,4 +35,5 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           allowed_tools: |
-            Bash
+            Bash(curl)
+            Bash(wget)
