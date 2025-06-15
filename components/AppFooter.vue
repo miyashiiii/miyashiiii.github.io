@@ -1,5 +1,7 @@
 <template>
-  <q-footer class="text-white" style="background-color: #5694b3">
+  <q-footer 
+    class="text-white" 
+    :style="$q.dark.isActive ? 'background-color: #1e1e1e' : 'background-color: #5694b3'">
     <q-toolbar class="row justify-center">
       <q-tabs
         no-caps
@@ -45,7 +47,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useQuasar } from 'quasar'
 
+const $q = useQuasar()
 const tab = ref("works");
 const route = useRoute();
 

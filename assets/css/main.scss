@@ -2,10 +2,28 @@ body {
   scrollbar-gutter: stable;
   overflow-y: scroll;
 }
+
 .footer-tab {
   width: 80px;
 }
 
 .no-decoration {
   text-decoration: none;
+}
+
+/* ダークモード用スタイル */
+.body--dark {
+  background-color: #121212;
+}
+
+/* ダークモード用カスタムスタイル */
+.q-dark {
+  .q-layout {
+    background-color: #121212;
+  }
+  
+  .q-page {
+    background-color: #121212;
+    color: #ffffff;
+  }
 }

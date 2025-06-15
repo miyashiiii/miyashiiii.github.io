@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ["nuxt-quasar-ui"],
 
   quasar: {
+    plugins: ["Dark"],
     extras: {
       fontIcons: ["fontawesome-v6"],
     },
