@@ -1,11 +1,13 @@
 <template>
   <q-header class="bg-grey-3">
     <q-toolbar class="" >
-      <q-toolbar-title class="text-center">
+      <q-space />
+      <q-toolbar-title class="flex justify-center">
         <NuxtLink to="/">
           <q-img src="/logo.png" style="width: 128px" no-spinner />
         </NuxtLink>
       </q-toolbar-title>
+      <q-space />
       <q-btn
         flat
         round
