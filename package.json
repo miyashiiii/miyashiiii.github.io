@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.54.2",
     "@quasar/extras": "^1.16.15",
     "@types/node": "^22.13.0",
     "eslint": "^9.19.0",
