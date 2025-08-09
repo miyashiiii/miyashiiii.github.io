@@ -6,15 +6,6 @@
           <q-img src="/logo.png" style="width: 128px" no-spinner />
         </NuxtLink>
       </q-toolbar-title>
-      <q-btn
-        flat
-        round
-        icon="fa-brands fa-git-alt"
-        color="grey-7"
-        href="https://github.com/miyashiiii/miyashiiii.github.io"
-        target="_blank"
-        size="md"
-      />
     </q-toolbar>
   </q-header>
 </template>
