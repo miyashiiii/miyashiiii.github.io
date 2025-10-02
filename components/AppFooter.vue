@@ -26,6 +26,12 @@
             Works
           </q-tab>
         </NuxtLink>
+        <NuxtLink to="/tools" class="no-decoration text-white">
+          <q-tab name="tools" class="q-py-xs footer-tab">
+            <q-icon name="build" size="sm" />
+            Tools
+          </q-tab>
+        </NuxtLink>
         <NuxtLink
           to="https://github.com/miyashiiii/miyashiiii.github.io"
           class="no-decoration text-white"
@@ -56,6 +62,8 @@ watchEffect(() => {
     tab.value = "posts";
   } else if (route.path === "/works") {
     tab.value = "works";
+  } else if (route.path.startsWith("/tools")) {
+    tab.value = "tools";
   }
 });
 </script>
