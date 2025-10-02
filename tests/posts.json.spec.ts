@@ -1,19 +1,23 @@
 import { expect, test } from "vitest";
+import { z } from "zod";
 import posts from "../assets/posts.json";
+
+const PostSchema = z.object({
+  title: z.string().min(1, "タイトルは必須です"),
+  url: z.string().url().startsWith("https://", "URLはhttps://で始まる必要があります"),
+  date: z.string().regex(/^\d{4}\/\d{2}\/\d{2}$/, "日付の形式はYYYY/MM/DDである必要があります"),
+  tags: z.array(z.string()),
+  img: z.string().optional(),
+});
 
 test("posts.jsonの形式が正しいか", () => {
   let lastTimeStamp = new Date("3000-01-01").getTime();
+  
   for (const post of posts) {
-    expect(post.title.length).toBeGreaterThan(0);
+    PostSchema.parse(post);
 
-    expect(post.url.startsWith("https://")).toBe(true);
-
-    expect(post.date.length).toBeGreaterThan(0);
-    expect(post.date).toMatch(/^\d{4}\/\d{2}\/\d{2}$/);
     const timestamp = new Date(post.date).getTime();
-    expect(lastTimeStamp).toBeLessThanOrEqual(lastTimeStamp); // 降順チェック
+    expect(timestamp).toBeLessThanOrEqual(lastTimeStamp);
     lastTimeStamp = timestamp;
-
-    expect(Array.isArray(post.tags)).toBe(true);
   }
 });
