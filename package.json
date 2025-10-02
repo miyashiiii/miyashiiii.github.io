@@ -34,6 +34,9 @@
     "vue-router": "^4.5.1",
     "zod": "^4.1.11"
   },
+  "dependencies": {
+    "cron-parser": "^4.9.0"
+  },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.52.3"
   }

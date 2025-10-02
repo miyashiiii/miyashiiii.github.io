@@ -40,5 +40,11 @@ const tools = [
     url: "/tools/character-counter",
     tags: ["テキスト", "文字数"],
   },
+  {
+    title: "Cron式パーサー",
+    subtitle: "Cron式をパースして実行予定を表示",
+    url: "/tools/cron",
+    tags: ["Cron", "スケジュール"],
+  },
 ];
 </script>
