@@ -35,8 +35,5 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.40.1"
-  },
-  "dependencies": {
-    "heic2any": "^0.0.4"
   }
 }

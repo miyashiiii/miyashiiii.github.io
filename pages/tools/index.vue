@@ -35,12 +35,6 @@ useHead({ title: "Tools" });
 
 const tools = [
   {
-    title: "HEIC-PNG変換",
-    subtitle: "HEIC画像をPNG形式に変換",
-    url: "/tools/heic-png-converter",
-    tags: ["画像変換", "HEIC", "PNG"],
-  },
-  {
     title: "文字数カウンター",
     subtitle: "テキストの文字数をカウント",
     url: "/tools/character-counter",
