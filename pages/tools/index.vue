@@ -40,5 +40,11 @@ const tools = [
     url: "/tools/character-counter",
     tags: ["テキスト", "文字数"],
   },
+  {
+    title: "HEIC to PNG 変換",
+    subtitle: "HEIC形式の画像をPNG形式に変換",
+    url: "/tools/heic-to-png",
+    tags: ["画像", "変換", "HEIC", "PNG"],
+  },
 ];
 </script>
