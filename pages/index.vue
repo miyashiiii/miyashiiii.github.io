@@ -4,9 +4,11 @@
       v-if="isLoading"
       style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999"
     >
-      <q-spinner
-        color="primary"
-        size="50px"
+      <q-img
+        src="/logo.png"
+        style="width: 128px"
+        class="pulse-animation"
+        no-spinner
       />
     </div>
     
@@ -82,3 +84,18 @@ const onImageLoad = () => {
   }
 };
 </script>
+
+<style scoped>
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+</style>
