@@ -85,10 +85,10 @@ const convertToPng = async () => {
   convertedBlob.value = null;
 
   try {
-    const heic2any = (await import("heic2any")).default;
-    const result = await heic2any({
+    const heicTo = (await import("heic-to")).default;
+    const result = await heicTo({
       blob: selectedFile.value,
-      toType: "image/png",
+      type: "image/png",
       quality: 1,
     });
 
