@@ -59,7 +59,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import heic2any from "heic2any";
 
 definePageMeta({ layout: "default" });
 useHead({ title: "HEIC to PNG 変換" });
@@ -86,6 +85,7 @@ const convertToPng = async () => {
   convertedBlob.value = null;
 
   try {
+    const heic2any = (await import("heic2any")).default;
     const result = await heic2any({
       blob: selectedFile.value,
       toType: "image/png",
