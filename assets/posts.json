@@ -1,5 +1,12 @@
 [
   {
+    "title": "「人の仕事を奪わないDX」──落とし物クラウドfindで見つけたエンジニアとしての成長と挑戦",
+    "url": "https://note.com/find_info/n/n006bcacf42e7",
+    "date": "2025/05/30",
+    "tags": ["キャリア"]
+  },
+
+  {
     "title": "はてなブログ本文内でHTML/CSS/JSを使ってみる",
     "url": "https://miyashiiii.hatenablog.jp/entry/2024/12/10/090307",
     "date": "2024/12/10",
@@ -9,7 +16,7 @@
     "title": "育休を半年取った話",
     "url": "https://miyashiiii.hatenablog.jp/entry/2024/12/09/000000",
     "date": "2024/12/09",
-    "tags": []
+    "tags": ["キャリア"]
   },
   {
     "title": "VueのTransitionタグを理解する",
@@ -39,7 +46,7 @@
     "title": "副業を始めた",
     "url": "https://miyashiiii.hatenablog.jp/entry/2024/04/17/092615",
     "date": "2024/04/17",
-    "tags": []
+    "tags": ["キャリア"]
   },
   {
     "title": "easy-thumbnailsで発生するInvalidImageFormatErrorの調査メモ",
