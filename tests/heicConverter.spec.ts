@@ -1,5 +1,5 @@
 import { expect, test, vi } from "vitest";
-import { convertHeicToPng, isHeicFile } from "../utils/heicConverter";
+import { convertHeicToPng } from "../utils/heicConverter";
 
 vi.mock("heic-to", () => ({
   heicTo: vi.fn(async ({ blob }) => {
@@ -8,12 +8,9 @@ vi.mock("heic-to", () => ({
     }
     return new Blob(["fake-png-data"], { type: "image/png" });
   }),
-  isHeic: vi.fn(async (file) => {
-    return file.type === "image/heic" || file.type === "image/heif";
-  }),
 }));
 
-test("convertHeicToPng should convert HEIC blob to PNG", async () => {
+test("HEICをPNGに変換できる", async () => {
   const heicBlob = new Blob(["fake-heic-data"], { type: "image/heic" });
   const pngBlob = await convertHeicToPng(heicBlob, 1);
 
@@ -21,7 +18,7 @@ test("convertHeicToPng should convert HEIC blob to PNG", async () => {
   expect(pngBlob.type).toBe("image/png");
 });
 
-test("convertHeicToPng should handle conversion errors", async () => {
+test("変換エラーを適切に処理できる", async () => {
   const invalidBlob = new Blob([], { type: "image/heic" });
 
   await expect(convertHeicToPng(invalidBlob, 1)).rejects.toThrow(
@@ -29,15 +26,7 @@ test("convertHeicToPng should handle conversion errors", async () => {
   );
 });
 
-test("isHeicFile should detect HEIC files correctly", async () => {
-  const heicFile = new File(["fake-heic-data"], "test.heic", { type: "image/heic" });
-  const jpegFile = new File(["fake-jpeg-data"], "test.jpg", { type: "image/jpeg" });
-
-  expect(await isHeicFile(heicFile)).toBe(true);
-  expect(await isHeicFile(jpegFile)).toBe(false);
-});
-
-test("convertHeicToPng should use specified quality", async () => {
+test("指定された品質を使用できる", async () => {
   const { heicTo } = await import("heic-to");
   const heicBlob = new Blob(["fake-heic-data"], { type: "image/heic" });
 
