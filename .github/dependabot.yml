@@ -11,12 +11,15 @@ updates:
         patterns:
           - 'vitest'
           - 'playwright*'
+          - '@playwright/*'
           - '*eslint*'
           - 'globals'
           - 'types/*'
           - '@types/*'
           - 'typescript*'
           - 'prettier'
+          - 'zod'
+          - '@rollup/*'
         update-types:
           - 'minor'
           - 'patch'
