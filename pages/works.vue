@@ -14,12 +14,22 @@
           <NuxtLink
             :to="post.url"
             class="row items-center justify-center bg-grey-2"
+            style="position: relative; height: 150px"
           >
+            <div
+              v-if="!imageLoading.get(post.title)"
+              style="position: absolute; top: 0; left: 0; right: 0; bottom: 0"
+            >
+              <q-skeleton
+                type="rect"
+                style="height: 100%; width: 100%"
+              />
+            </div>
             <q-img
               :src="post.thumbnail"
               fit="scale-down"
               style="height: 150px"
-              no-spinner
+              @load="() => onImageLoad(post.title)"
             />
           </NuxtLink>
           <q-card-section>
@@ -44,6 +54,12 @@
 <script setup lang="ts">
 definePageMeta({ layout: "default" });
 useHead({ title: "Works" });
+
+const imageLoading = ref(new Map<string, boolean>());
+
+const onImageLoad = (workTitle: string) => {
+  imageLoading.value.set(workTitle, true);
+};
 
 const works = [
   {
