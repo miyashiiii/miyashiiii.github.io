@@ -11,12 +11,15 @@ updates:
         patterns:
           - 'vitest'
           - 'playwright*'
+          - '@playwright/*'
           - '*eslint*'
           - 'globals'
           - 'types/*'
           - '@types/*'
           - 'typescript*'
           - 'prettier'
+          - 'zod'
+          - '@rollup/*'
         update-types:
           - 'minor'
           - 'patch'
@@ -43,3 +46,7 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
+    groups:
+      github-actions:
+        patterns:
+          - 'actions/*'
