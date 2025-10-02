@@ -18,7 +18,7 @@
       </div>
 
       <!-- SNSリンク -->
-      <div class="row justify-center">
+      <div class="row justify-center q-px-md">
         <div v-for="(link, index) in links" :key="index" class="q-mx-md">
           <NuxtLink :to="link.url">
             <q-img
