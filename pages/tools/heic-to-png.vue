@@ -59,6 +59,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { convertHeicToPng } from "~/utils/heicConverter";
 
 definePageMeta({ layout: "default" });
 useHead({ title: "HEIC to PNG 変換" });
@@ -85,14 +86,7 @@ const convertToPng = async () => {
   convertedBlob.value = null;
 
   try {
-    const heicTo = (await import("heic-to")).default;
-    const result = await heicTo({
-      blob: selectedFile.value,
-      type: "image/png",
-      quality: 1,
-    });
-
-    convertedBlob.value = Array.isArray(result) ? result[0] : result;
+    convertedBlob.value = await convertHeicToPng(selectedFile.value, 1);
   } catch (e) {
     error.value = "変換中にエラーが発生しました。ファイル形式を確認してください。";
     console.error(e);
