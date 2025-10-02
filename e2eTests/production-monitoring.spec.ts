@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const PRODUCTION_URL = "https://miyashiiii.github.io";
 
-test("production: top page is accessible and has correct title", async ({
+test("本番: トップページにアクセスでき、正しいタイトルが表示される", async ({
   page,
 }) => {
   const response = await page.goto(PRODUCTION_URL);
@@ -10,7 +10,7 @@ test("production: top page is accessible and has correct title", async ({
   await expect(page).toHaveTitle("miyashiiii portfolio");
 });
 
-test("production: posts page is accessible and has correct title", async ({
+test("本番: 記事一覧ページにアクセスでき、正しいタイトルが表示される", async ({
   page,
 }) => {
   const response = await page.goto(`${PRODUCTION_URL}/posts`);
@@ -18,7 +18,7 @@ test("production: posts page is accessible and has correct title", async ({
   await expect(page).toHaveTitle("Posts | miyashiiii portfolio");
 });
 
-test("production: works page is accessible and has correct title", async ({
+test("本番: 成果物一覧ページにアクセスでき、正しいタイトルが表示される", async ({
   page,
 }) => {
   const response = await page.goto(`${PRODUCTION_URL}/works`);
@@ -26,7 +26,7 @@ test("production: works page is accessible and has correct title", async ({
   await expect(page).toHaveTitle("Works | miyashiiii portfolio");
 });
 
-test("production: verify DNS resolution and response time", async ({
+test("本番: DNS解決とレスポンス時間を確認", async ({
   page,
 }) => {
   const startTime = Date.now();
