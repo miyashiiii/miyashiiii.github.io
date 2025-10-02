@@ -34,7 +34,7 @@
                     <q-item-label>秒</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.second) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.second, 'second') }}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item>
@@ -42,7 +42,7 @@
                     <q-item-label>分</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.minute) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.minute, 'minute') }}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item>
@@ -50,7 +50,7 @@
                     <q-item-label>時</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.hour) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.hour, 'hour') }}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item>
@@ -58,7 +58,7 @@
                     <q-item-label>日</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.dayOfMonth) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.dayOfMonth, 'dayOfMonth') }}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item>
@@ -66,7 +66,7 @@
                     <q-item-label>月</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.month) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.month, 'month') }}</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item>
@@ -74,7 +74,7 @@
                     <q-item-label>曜日</q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-item-label>{{ formatField(parsedFields.dayOfWeek) }}</q-item-label>
+                    <q-item-label>{{ formatField(parsedFields.dayOfWeek, 'dayOfWeek') }}</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -125,10 +125,38 @@ const parsedFields = ref<CronFields | null>(null);
 const nextExecutions = ref<string[]>([]);
 const error = ref("");
 
-const formatField = (field: number[] | undefined): string => {
+const dayOfWeekNames = ["日", "月", "火", "水", "木", "金", "土"];
+
+const formatField = (field: number[] | undefined, fieldType: string): string => {
   if (!field || field.length === 0) {
     return "*";
   }
+  
+  const fullRanges: Record<string, number> = {
+    second: 60,
+    minute: 60,
+    hour: 24,
+    dayOfMonth: 31,
+    month: 12,
+    dayOfWeek: 7,
+  };
+  
+  if (field.length === fullRanges[fieldType]) {
+    const labels: Record<string, string> = {
+      second: "毎秒",
+      minute: "毎分",
+      hour: "毎時",
+      dayOfMonth: "毎日",
+      month: "毎月",
+      dayOfWeek: "毎日",
+    };
+    return labels[fieldType] || "*";
+  }
+  
+  if (fieldType === "dayOfWeek") {
+    return field.map(day => dayOfWeekNames[day]).join(", ");
+  }
+  
   return field.join(", ");
 };
 
