@@ -21,20 +21,29 @@
           <NuxtLink
             :to="post.url"
             class="row items-center justify-center bg-grey-3"
-            style="height: 120px"
+            style="height: 120px; position: relative"
           >
+            <div
+              v-if="!imageLoading.get(post.title)"
+              style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center"
+            >
+              <q-skeleton
+                type="rect"
+                :style="post.img ? 'height: 120px; width: 100%' : 'height: 50px; width: 50px'"
+              />
+            </div>
             <q-img
               v-if="post.img"
               :src="getImgPath(post.img)"
               fit="scale-down"
               style="height: 120px"
-              no-spinner
+              @load="() => onImageLoad(post.title)"
             />
             <q-img
               v-else
               :src="getServiceIconFromUrl(post.url)"
               style="height: 50px; width: 50px"
-              no-spinner
+              @load="() => onImageLoad(post.title)"
             />
           </NuxtLink>
           <q-card-section>
@@ -67,21 +76,30 @@
         >
           <NuxtLink :to="post.url">
             <div
-              style="width: 120px; height: 80px"
+              style="width: 120px; height: 80px; position: relative"
               class="row justify-center items-center bg-grey-3"
             >
+              <div
+                v-if="!imageLoading.get(post.title)"
+                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center"
+              >
+                <q-skeleton
+                  type="rect"
+                  :style="post.img ? 'height: 80px; width: 120px' : 'height: 50px; width: 50px'"
+                />
+              </div>
               <q-img
                 v-if="post.img"
                 :src="getImgPath(post.img)"
                 fit="scale-down"
                 style="height: 80px"
-                no-spinner
+                @load="() => onImageLoad(post.title)"
               />
               <q-img
                 v-else
                 :src="getServiceFromUrl(post.url).icon"
                 style="height: 50px; width: 50px"
-                no-spinner
+                @load="() => onImageLoad(post.title)"
               />
             </div>
           </NuxtLink>
@@ -126,6 +144,11 @@ import postsJson from "@/assets/posts.json";
 const posts: Ref<Post[]> = ref([]);
 const isValidQuery = ref(false);
 const route = useRoute();
+const imageLoading = ref(new Map<string, boolean>());
+
+const onImageLoad = (postTitle: string) => {
+  imageLoading.value.set(postTitle, true);
+};
 
 watchEffect(() => {
   posts.value = [];

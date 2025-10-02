@@ -1,11 +1,21 @@
 <template>
   <div class="fixed-center full-width row justify-center items-center">
-    <div class="col q-gutter-y-lg">
+    <div
+      v-if="isLoading"
+      style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999"
+    >
+      <q-spinner
+        color="primary"
+        size="50px"
+      />
+    </div>
+    
+    <div class="col q-gutter-y-lg" :style="{ opacity: isLoading ? 0 : 1 }">
       <div class="row justify-center items-center q-gutter-x-lg">
         <q-img
           :src="imagePath"
-          no-spinner
           style="height: 300px; width: 300px"
+          @load="onImageLoad"
         />
         <div
           class="justify-center q-gutter-sm text-center"
@@ -22,9 +32,9 @@
         <div v-for="(link, index) in links" :key="index" class="q-mx-md">
           <NuxtLink :to="link.url">
             <q-img
-              no-spinner
               :src="link.icon"
               :width="link.small ? '28px' : '32px'"
+              @load="onImageLoad"
             />
           </NuxtLink>
         </div>
@@ -60,4 +70,15 @@ const links = [
     icon: "/sns/sizu.png",
   },
 ];
+
+const isLoading = ref(true);
+const totalImages = 1 + links.length;
+const loadedImages = ref(0);
+
+const onImageLoad = () => {
+  loadedImages.value++;
+  if (loadedImages.value >= totalImages) {
+    isLoading.value = false;
+  }
+};
 </script>
