@@ -15,13 +15,6 @@
               {{ tool.title }}
             </NuxtLink>
             <div class="q-mt-xs text-grey-8">{{ tool.subtitle }}</div>
-            <q-chip
-              v-for="tag in tool.tags"
-              class="text-caption q-ml-none"
-              :label="tag"
-              :ripple="false"
-              :key="tag"
-            />
           </q-card-section>
         </q-card>
       </div>
@@ -38,7 +31,11 @@ const tools = [
     title: "文字数カウンター",
     subtitle: "テキストの文字数をカウント",
     url: "/tools/character-counter",
-    tags: ["テキスト", "文字数"],
+  },
+  {
+    title: "HEIC to PNG 変換",
+    subtitle: "HEIC形式の画像をPNG形式に変換",
+    url: "/tools/heic-to-png",
   },
 ];
 </script>
