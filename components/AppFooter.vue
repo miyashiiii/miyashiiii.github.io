@@ -1,6 +1,6 @@
 <template>
   <q-footer class="text-white" style="background-color: #5694b3">
-    <q-toolbar class="row justify-center">
+    <q-toolbar class="row justify-center q-px-md">
       <q-tabs
         no-caps
         indicator-color="white"
