@@ -15,7 +15,13 @@ cp .env.example .env
 ```
 SUPABASE_URL=your-supabase-url
 SUPABASE_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_KEY=your-supabase-service-role-key
 ```
+
+**注意：**
+- `SUPABASE_KEY`（anon key）はフロントエンドでも使用可能な公開鍵です
+- `SUPABASE_SERVICE_KEY`（service_role key）はサーバーサイド専用で、RLSをバイパスします
+- service_role keyは絶対に公開リポジトリにコミットしないでください
 
 ### 依存パッケージのインストール
 
@@ -70,7 +76,7 @@ Pythonタグが付いた記事のみが返されます。
 初回セットアップ時、または posts.json を更新した後に実行：
 
 ```bash
-SUPABASE_URL=your-url SUPABASE_KEY=your-key npm run migrate
+SUPABASE_URL=your-url SUPABASE_SERVICE_KEY=your-service-key npm run migrate
 ```
 
 ### データベーススキーマ

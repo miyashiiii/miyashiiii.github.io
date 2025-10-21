@@ -2,14 +2,16 @@ import { createClient } from "@supabase/supabase-js";
 import postsJson from "../assets/posts.json";
 
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-  console.error("エラー: SUPABASE_URLとSUPABASE_KEYが環境変数に設定されていません");
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.error(
+    "エラー: SUPABASE_URLとSUPABASE_SERVICE_KEYが環境変数に設定されていません"
+  );
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 async function migratePosts() {
   console.log(`${postsJson.length}件の記事をSupabaseに移行します...`);

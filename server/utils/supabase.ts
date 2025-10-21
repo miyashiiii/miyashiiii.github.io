@@ -3,10 +3,12 @@ import { createClient } from "@supabase/supabase-js";
 const config = useRuntimeConfig();
 
 const supabaseUrl = config.supabaseUrl;
-const supabaseKey = config.supabaseKey;
+const supabaseServiceKey = config.supabaseServiceKey;
 
-if (!supabaseUrl || !supabaseKey) {
-  throw new Error("SUPABASE_URLとSUPABASE_KEYが環境変数に設定されていません");
+if (!supabaseUrl || !supabaseServiceKey) {
+  throw new Error(
+    "SUPABASE_URLとSUPABASE_SERVICE_KEYが環境変数に設定されていません"
+  );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(supabaseUrl, supabaseServiceKey);
