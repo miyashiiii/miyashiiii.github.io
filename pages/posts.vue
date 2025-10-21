@@ -24,12 +24,12 @@
             style="height: 120px"
           >
             <q-img
-              v-if="post.img"
+              v-if="post.img && !hasImageError(post)"
               :src="getImgPath(post.img)"
               fit="scale-down"
               style="height: 120px"
               no-spinner
-              @error="(e: Event) => handleImageError(e, post.url)"
+              @error="() => markImageError(post)"
             />
             <q-img
               v-else
@@ -72,12 +72,12 @@
               class="row justify-center items-center bg-grey-3"
             >
               <q-img
-                v-if="post.img"
+                v-if="post.img && !hasImageError(post)"
                 :src="getImgPath(post.img)"
                 fit="scale-down"
                 style="height: 80px"
                 no-spinner
-                @error="(e: Event) => handleImageError(e, post.url)"
+                @error="() => markImageError(post)"
               />
               <q-img
                 v-else
@@ -138,13 +138,14 @@ const getImgPath = (imgName: string): string => {
   return `/posts/${imgName}`;
 };
 
-const handleImageError = (event: Event, url: string): void => {
-  const target = event.target as HTMLImageElement;
-  if (target) {
-    target.src = getServiceIconFromUrl(url);
-    target.style.height = "50px";
-    target.style.width = "50px";
-  }
+const imageErrors = ref<Set<string>>(new Set());
+
+const hasImageError = (post: Post): boolean => {
+  return imageErrors.value.has(post.url);
+};
+
+const markImageError = (post: Post): void => {
+  imageErrors.value.add(post.url);
 };
 
 type Service = {
