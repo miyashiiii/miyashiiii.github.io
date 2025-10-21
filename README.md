@@ -85,18 +85,20 @@ SUPABASE_URL=your-url SUPABASE_SERVICE_KEY=your-service-key npm run migrate
 
 ## 記事追加
 
-現在は [assets/posts.json](assets/posts.json) を更新後、マイグレーションスクリプトを実行してSupabaseに反映します。
+Supabaseコンソールから直接追加します。
 
-テンプレ:
+1. https://supabase.com/dashboard にアクセス
+2. プロジェクトを選択
+3. 左メニューから「Table Editor」を選択
+4. 「posts」テーブルを選択
+5. 「Insert row」をクリックして新しい記事を追加
 
-```json
-  {
-    "title": "",
-    "url": "",
-    "date": "2024/00/00",
-    "tags": []
-  },
-```
+**必須フィールド：**
+- `title`: 記事タイトル
+- `url`: 記事URL
+- `date`: 公開日（YYYY-MM-DD形式）
+- `tags`: タグの配列（例: `["Python", "Web"]`）
+- `img`: 画像ファイル名（オプション、nullも可）
 
 ## テスト
 
