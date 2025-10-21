@@ -23,14 +23,7 @@
             class="row items-center justify-center bg-grey-3"
             style="height: 120px"
           >
-            <q-img
-              v-if="post.img && !hasImageError(post)"
-              :src="getImgPath(post.img)"
-              fit="scale-down"
-              style="height: 120px"
-              no-spinner
-              @error="() => markImageError(post)"
-            />
+            <PostImage v-if="post.img" :post="post" height="120px" />
             <q-img
               v-else
               :src="getServiceIconFromUrl(post.url)"
@@ -71,14 +64,7 @@
               style="width: 120px; height: 80px"
               class="row justify-center items-center bg-grey-3"
             >
-              <q-img
-                v-if="post.img && !hasImageError(post)"
-                :src="getImgPath(post.img)"
-                fit="scale-down"
-                style="height: 80px"
-                no-spinner
-                @error="() => markImageError(post)"
-              />
+              <PostImage v-if="post.img" :post="post" height="80px" />
               <q-img
                 v-else
                 :src="getServiceFromUrl(post.url).icon"
@@ -133,20 +119,6 @@ const isValidQuery = computed(() => {
 watch(tag, () => {
   refresh();
 });
-
-const getImgPath = (imgName: string): string => {
-  return `/posts/${imgName}`;
-};
-
-const imageErrors = ref<Set<string>>(new Set());
-
-const hasImageError = (post: Post): boolean => {
-  return imageErrors.value.has(post.url);
-};
-
-const markImageError = (post: Post): void => {
-  imageErrors.value.add(post.url);
-};
 
 type Service = {
   name: string;
