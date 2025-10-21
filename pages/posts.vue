@@ -114,37 +114,23 @@
 definePageMeta({ layout: "default" });
 useHead({ title: "Posts" });
 
-type Post = {
-  title: string;
-  date: string;
-  url: string;
-  tags: string[];
-  img?: string;
-};
+import type { Post } from "~/types/post";
 
-import postsJson from "@/assets/posts.json";
-const posts: Ref<Post[]> = ref([]);
-const isValidQuery = ref(false);
 const route = useRoute();
+const router = useRouter();
 
-watchEffect(() => {
-  posts.value = [];
-  if (!route.query.tag) {
-    posts.value = postsJson;
-    isValidQuery.value = false;
-    return;
-  }
-  for (const post of postsJson) {
-    if (post.tags.includes(route.query.tag.toString())) {
-      posts.value.push(post);
-    }
-  }
-  if (posts.value.length === 0) {
-    posts.value = postsJson;
-    isValidQuery.value = false;
-  } else {
-    isValidQuery.value = true;
-  }
+const tag = computed(() => route.query.tag?.toString());
+
+const { data: posts, refresh } = await useFetch<Post[]>("/api/posts", {
+  query: computed(() => ({ tag: tag.value })),
+});
+
+const isValidQuery = computed(() => {
+  return !!tag.value && posts.value && posts.value.length > 0;
+});
+
+watch(tag, () => {
+  refresh();
 });
 
 const getImgPath = (imgName: string): string => {
