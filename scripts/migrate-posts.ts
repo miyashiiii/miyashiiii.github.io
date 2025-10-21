@@ -22,7 +22,7 @@ async function migratePosts() {
     tags: post.tags,
   }));
 
-  const { data, error } = await supabase.from("posts").insert(postsToInsert);
+  const { error } = await supabase.from("posts").insert(postsToInsert);
 
   if (error) {
     console.error("エラーが発生しました:", error);

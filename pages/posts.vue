@@ -117,7 +117,6 @@ useHead({ title: "Posts" });
 import type { Post } from "~/types/post";
 
 const route = useRoute();
-const router = useRouter();
 
 const tag = computed(() => route.query.tag?.toString());
 
