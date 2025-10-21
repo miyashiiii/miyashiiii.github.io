@@ -25,6 +25,9 @@ export default [
         Ref: true,
         ref: true,
         watchEffect: true,
+        computed: true,
+        watch: true,
+        useFetch: true,
       },
     },
     rules: {

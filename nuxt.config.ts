@@ -10,5 +10,11 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY,
+  },
+
   compatibilityDate: "2025-02-09",
 });

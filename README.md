@@ -1,30 +1,117 @@
 # miyashiiii.github.io
 
+## セットアップ
+
+### 環境変数の設定
+
+`.env` ファイルを作成し、Supabaseの接続情報を設定します。
+
+```bash
+cp .env.example .env
+```
+
+`.env` ファイルを編集して、以下の値を設定してください：
+
+```
+SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_KEY=your-supabase-service-role-key
+```
+
+**注意：**
+- `SUPABASE_KEY`（anon key）はフロントエンドでも使用可能な公開鍵です
+- `SUPABASE_SERVICE_KEY`（service_role key）はサーバーサイド専用で、RLSをバイパスします
+- service_role keyは絶対に公開リポジトリにコミットしないでください
+
+### 依存パッケージのインストール
+
+```bash
+npm install
+```
+
 ## ローカルサーバー起動
 
 ```bash
 npm run dev
 ```
 
-## 記事追加
+サーバーが起動したら、http://localhost:3001 にアクセスしてください。
 
-[assets/posts.json](assets/posts.json) を更新する。
+## バックエンドAPI
 
-テンプレ:
+### エンドポイント
 
-```json
-  {
-    "title": "",
-    "url": "",
-    "date": "2024/00/00",
-    "tags": []
-  },
+- `GET /api/posts` - 記事一覧取得
+  - クエリパラメータ: `tag` (オプション) - タグでフィルタリング
+  - 例: `/api/posts?tag=Python`
+
+### 動作確認方法
+
+#### 1. 記事一覧の取得
+
+```bash
+curl http://localhost:3001/api/posts
 ```
 
-## JSON ファイル形式チェック
+記事データがJSON形式で返されます。
+
+#### 2. タグでフィルタリング
+
+```bash
+curl "http://localhost:3001/api/posts?tag=Python"
+```
+
+Pythonタグが付いた記事のみが返されます。
+
+#### 3. ブラウザでの確認
+
+- 記事一覧ページ: http://localhost:3001/posts
+- タグフィルタリング: http://localhost:3001/posts?tag=Python
+- タグをクリックすると、そのタグの記事のみが表示されます
+
+## データベース
+
+### Supabaseへのデータ移行
+
+初回セットアップ時、または posts.json を更新した後に実行：
+
+```bash
+SUPABASE_URL=your-url SUPABASE_SERVICE_KEY=your-service-key npm run migrate
+```
+
+### データベーススキーマ
+
+スキーマ定義は [database/schema.sql](database/schema.sql) を参照してください。
+
+## 記事追加
+
+Supabaseコンソールから直接追加します。
+
+1. https://supabase.com/dashboard にアクセス
+2. プロジェクトを選択
+3. 左メニューから「Table Editor」を選択
+4. 「posts」テーブルを選択
+5. 「Insert row」をクリックして新しい記事を追加
+
+**必須フィールド：**
+- `title`: 記事タイトル
+- `url`: 記事URL
+- `date`: 公開日（YYYY-MM-DD形式）
+- `tags`: タグの配列（例: `["Python", "Web"]`）
+- `img`: 画像ファイル名（オプション、nullも可）
+
+## テスト
+
+### JSON ファイル形式チェック
 
 ```bash
 npm run test
+```
+
+### E2Eテスト
+
+```bash
+npm run e2e
 ```
 
 ## 画面
@@ -33,5 +120,6 @@ npm run test
   - 各 SNS リンク
 - 記事一覧ページ
   - 各ブログサイトへ投稿した記事の紹介
+  - タグによるフィルタリング機能
 - 成果物一覧ページ
   - リリースしたアプリやサービスの紹介
