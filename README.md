@@ -38,7 +38,6 @@ npm run dev
 - `GET /api/posts` - 記事一覧取得
   - クエリパラメータ: `tag` (オプション) - タグでフィルタリング
   - 例: `/api/posts?tag=Python`
-- `GET /api/tags` - タグ一覧取得
 
 ### 動作確認方法
 
@@ -48,7 +47,7 @@ npm run dev
 curl http://localhost:3001/api/posts
 ```
 
-31件の記事データがJSON形式で返されます。
+記事データがJSON形式で返されます。
 
 #### 2. タグでフィルタリング
 
@@ -58,15 +57,7 @@ curl "http://localhost:3001/api/posts?tag=Python"
 
 Pythonタグが付いた記事のみが返されます。
 
-#### 3. タグ一覧の取得
-
-```bash
-curl http://localhost:3001/api/tags
-```
-
-すべてのタグがJSON配列で返されます。
-
-#### 4. ブラウザでの確認
+#### 3. ブラウザでの確認
 
 - 記事一覧ページ: http://localhost:3001/posts
 - タグフィルタリング: http://localhost:3001/posts?tag=Python
