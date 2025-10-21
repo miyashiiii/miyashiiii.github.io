@@ -51,7 +51,7 @@ const works = [
     subtitle: "このサイト",
     thumbnail: "/works/portfolio.png",
     url: "/",
-    tags: ["Nuxt", "Quasar", "GitHub Pages"],
+    tags: ["Nuxt", "Quasar", "Cloudflare Pages"],
   },
   {
     title: "数読",

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const PRODUCTION_URL = "https://miyashiiii.github.io";
+const PRODUCTION_URL = "https://miyashiiii.com";
 
 test("本番: トップページにアクセスでき、正しいタイトルが表示される", async ({
   page,
