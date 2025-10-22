@@ -23,7 +23,7 @@
             class="row items-center justify-center bg-grey-3"
             style="height: 120px"
           >
-            <PostImage v-if="post.img" :post="post" height="120px" />
+            <PostImage v-if="post.img" :post="post" image-style="height: 120px" />
             <q-img
               v-else
               :src="getServiceIconFromUrl(post.url)"
@@ -64,7 +64,7 @@
               style="width: 120px; height: 80px"
               class="row justify-center items-center bg-grey-3"
             >
-              <PostImage v-if="post.img" :post="post" height="80px" />
+              <PostImage v-if="post.img" :post="post" image-style="height: 80px" />
               <q-img
                 v-else
                 :src="getServiceFromUrl(post.url).icon"

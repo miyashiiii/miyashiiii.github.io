@@ -5,11 +5,11 @@
     :fit="fit"
     :style="imageStyle"
     no-spinner
-    @error="handleError"
+    @error="hasError = true"
   />
   <q-img
     v-else
-    :src="fallbackIcon"
+    :src="getServiceIconFromUrl(post.url)"
     style="height: 50px; width: 50px"
     no-spinner
   />
@@ -20,7 +20,7 @@ import type { Post } from "~/types/post";
 
 interface Props {
   post: Post;
-  height: string;
+  imageStyle: string;
   fit?: string;
 }
 
@@ -36,18 +36,6 @@ const imageSrc = computed(() => {
   }
   return `/posts/${props.post.img}`;
 });
-
-const imageStyle = computed(() => {
-  return `height: ${props.height}`;
-});
-
-const fallbackIcon = computed(() => {
-  return getServiceIconFromUrl(props.post.url);
-});
-
-const handleError = () => {
-  hasError.value = true;
-};
 
 type Service = {
   name: string;
@@ -72,9 +60,8 @@ const getServiceFromUrl = (url: string): Service => {
     },
   ];
 
-  const service = services.find((service) => url.includes(service.pattern));
-  if (service) {
-    return { name: service.name, icon: service.icon };
+  if (services.find((service) => url.includes(service.pattern))) {
+    return services.find((service) => url.includes(service.pattern))!;
   } else {
     throw new Error("invalid url");
   }
