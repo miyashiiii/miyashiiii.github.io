@@ -4,11 +4,17 @@ const config = useRuntimeConfig();
 
 const supabaseUrl = config.supabaseUrl;
 const supabaseServiceKey = config.supabaseServiceKey;
+const supabaseKey = config.supabaseKey;
 
-if (!supabaseUrl || !supabaseServiceKey) {
+if (!supabaseUrl) {
+  throw new Error("SUPABASE_URLが環境変数に設定されていません");
+}
+
+if (!supabaseServiceKey && !supabaseKey) {
   throw new Error(
-    "SUPABASE_URLとSUPABASE_SERVICE_KEYが環境変数に設定されていません"
+    "SUPABASE_SERVICE_KEYまたはSUPABASE_KEYが環境変数に設定されていません"
   );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const key = supabaseServiceKey || supabaseKey;
+export const supabase = createClient(supabaseUrl, key as string);
