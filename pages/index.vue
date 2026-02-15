@@ -138,8 +138,9 @@ const links = [
 @media (min-width: 1024px) {
   .profile-container {
     flex-direction: row-reverse;
-    gap: 5rem;
+    gap: 0rem;
     text-align: left;
+    max-width: 90%;
   }
 
   .profile-info {
@@ -153,7 +154,7 @@ const links = [
   }
 
   .profile-name {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .main-name {
@@ -162,8 +163,10 @@ const links = [
 
   .sub-name {
     font-weight: normal;
-    font-size: 2.2rem;
-    margin-left: 0.5rem;
+    font-size: 1.8rem;
+    display: block;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
   }
 
   .profile-title {
@@ -204,8 +207,8 @@ const links = [
   }
 
   .profile-image {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
   }
 }
 </style>
