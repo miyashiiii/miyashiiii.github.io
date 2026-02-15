@@ -27,3 +27,11 @@ logs
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Screenshots for visual testing
+/screenshots/
+
+# Claude Code local files (except MCP config and skills)
+/.claude/*
+!/.claude/mcp.json
+!/.claude/skills/

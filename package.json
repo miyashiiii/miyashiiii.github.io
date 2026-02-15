@@ -12,7 +12,9 @@
     "e2e": "npx playwright test --project chromium",
     "e2eall": "npx playwright test",
     "lint": "npx eslint",
-    "migrate": "tsx scripts/migrate-posts.ts"
+    "migrate": "tsx scripts/migrate-posts.ts",
+    "screenshot": "node scripts/screenshot.mjs",
+    "screenshot:tmp": "OUTPUT_DIR=/tmp node scripts/screenshot.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -22,6 +24,7 @@
     "eslint": "^9.36.0",
     "eslint-plugin-vue": "^10.5.0",
     "globals": "^16.4.0",
+    "mcp-playwright": "^0.0.1",
     "nuxt": "^3.19.2",
     "nuxt-quasar-ui": "^2.1.13",
     "playwright": "^1.55.1",
