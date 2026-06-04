@@ -1,13 +1,11 @@
 <template>
-  <q-layout view="hHh lpr fFf">
+  <div class="l-wrap">
     <AppHeader />
-    <q-page-container class="">
-      <q-page>
-        <slot />
-      </q-page>
-    </q-page-container>
+    <div class="l-main">
+      <slot />
+    </div>
     <AppFooter />
-  </q-layout>
+  </div>
 </template>
 
 <script setup lang="ts">

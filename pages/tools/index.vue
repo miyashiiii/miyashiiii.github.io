@@ -1,25 +1,23 @@
 <template>
-  <div class="row justify-center">
-    <div style="max-width: 940px">
-      <div
-        class="q-pt-lg row items-start q-gutter-lg"
-        :class="$q.screen.lt.md ? 'justify-around' : 'justify-between'"
-      >
-        <q-card
-          v-for="tool in tools"
-          :style="$q.screen.lt.md ? 'width:75%' : 'width: 280px;'"
-          :key="tool.title"
-        >
-          <q-card-section>
-            <NuxtLink :to="tool.url" class="text-bold text-black no-decoration">
-              {{ tool.title }}
-            </NuxtLink>
-            <div class="q-mt-xs text-grey-8">{{ tool.subtitle }}</div>
-          </q-card-section>
-        </q-card>
-      </div>
+  <main class="wrap" style="padding-bottom: 80px">
+    <div class="page-head">
+      <h1>Tools</h1>
     </div>
-  </div>
+
+    <div class="works-grid">
+      <NuxtLink
+        v-for="tool in tools"
+        :key="tool.title"
+        :to="tool.url"
+        class="work"
+      >
+        <div class="body">
+          <div class="title">{{ tool.title }}</div>
+          <div class="sub">{{ tool.subtitle }}</div>
+        </div>
+      </NuxtLink>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">

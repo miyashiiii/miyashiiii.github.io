@@ -1,44 +1,31 @@
 <template>
-  <div class="row justify-center">
-    <div style="max-width: 940px">
-      <div
-        class="q-pt-lg row items-start q-gutter-lg"
-        :class="$q.screen.lt.md ? 'justify-around' : 'justify-between'"
-      >
-        <q-card
-          v-for="post in works"
-          :href="post.url"
-          :style="$q.screen.lt.md ? 'width:75%' : 'width: 280px;'"
-          :key="post.title"
-        >
-          <NuxtLink
-            :to="post.url"
-            class="row items-center justify-center bg-grey-2"
-          >
-            <q-img
-              :src="post.thumbnail"
-              fit="scale-down"
-              style="height: 150px"
-              no-spinner
-            />
-          </NuxtLink>
-          <q-card-section>
-            <NuxtLink :to="post.url" class="text-bold text-black no-decoration">
-              {{ post.title }}
-            </NuxtLink>
-            <div class="q-mt-xs text-grey-8">{{ post.subtitle }}</div>
-            <q-chip
-              v-for="tag in post.tags"
-              class="text-caption q-ml-none"
-              :label="tag"
-              :ripple="false"
-              :key="tag"
-            />
-          </q-card-section>
-        </q-card>
-      </div>
+  <main class="wrap" style="padding-bottom: 80px">
+    <div class="page-head">
+      <h1>Works</h1>
     </div>
-  </div>
+
+    <div class="works-grid">
+      <a
+        v-for="work in works"
+        :key="work.title"
+        :href="work.url"
+        class="work"
+        v-bind="work.url.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {}"
+      >
+        <div class="thumb">
+          <img :src="work.thumbnail" :alt="work.title" />
+        </div>
+        <div class="body">
+          <div class="title">{{ work.title }}</div>
+          <div class="sub">{{ work.subtitle }}</div>
+          <div class="tags">
+            <span v-for="tag in work.tags" :key="tag" class="tag">{{ tag }}</span>
+          </div>
+          <div class="ext">{{ work.url.startsWith("http") ? "View ↗" : "Open →" }}</div>
+        </div>
+      </a>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
