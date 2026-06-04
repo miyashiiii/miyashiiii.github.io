@@ -1,26 +1,17 @@
 <template>
-  <q-header class="bg-grey-3">
-    <q-toolbar class="" >
-      <q-toolbar-title class="text-center">
-        <NuxtLink to="/">
-          <q-img src="/logo.png" style="width: 128px" no-spinner />
-        </NuxtLink>
-      </q-toolbar-title>
-    </q-toolbar>
-  </q-header>
+  <header class="site-head">
+    <div class="bar">
+      <NuxtLink to="/" class="brand">miyashiiii</NuxtLink>
+      <nav class="site-nav">
+        <NuxtLink to="/" :class="{ on: route.path === '/' }">Top</NuxtLink>
+        <NuxtLink to="/posts" :class="{ on: route.path.startsWith('/posts') }">Posts</NuxtLink>
+        <NuxtLink to="/works" :class="{ on: route.path === '/works' }">Works</NuxtLink>
+        <NuxtLink to="/tools" :class="{ on: route.path.startsWith('/tools') }">Tools</NuxtLink>
+      </nav>
+    </div>
+  </header>
 </template>
 
 <script setup lang="ts">
-const tab = ref("works");
 const route = useRoute();
-
-watchEffect(() => {
-  if (route.path === "/") {
-    tab.value = "index";
-  } else if (route.path.startsWith("/posts")) {
-    tab.value = "posts";
-  } else if (route.path === "/works") {
-    tab.value = "works";
-  }
-});
 </script>
