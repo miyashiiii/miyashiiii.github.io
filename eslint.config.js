@@ -20,6 +20,7 @@ export default [
       parserOptions: { parser: tseslint.parser },
       globals: {
         useRoute: true,
+        useRouter: true,
         useHead: true,
         definePageMeta: true,
         Ref: true,
