@@ -39,7 +39,8 @@
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.52.3",
     "@oxc-parser/binding-linux-x64-gnu": "0.132.0",
-    "@oxc-transform/binding-linux-x64-gnu": "0.132.0"
+    "@oxc-transform/binding-linux-x64-gnu": "0.132.0",
+    "@oxc-minify/binding-linux-x64-gnu": "0.132.0"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.76.0",
