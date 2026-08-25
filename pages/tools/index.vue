@@ -35,5 +35,10 @@ const tools = [
     subtitle: "HEIC形式の画像をPNG形式に変換",
     url: "/tools/heic-to-png",
   },
+  {
+    title: "EXIFビューア",
+    subtitle: "画像ファイルのEXIF情報を確認",
+    url: "/tools/exif-viewer",
+  },
 ];
 </script>
