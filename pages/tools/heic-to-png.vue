@@ -2,7 +2,7 @@
   <div class="row justify-center q-pa-md">
     <div style="max-width: 640px; width: 100%">
       <h4 class="q-mt-none">HEIC to PNG 変換</h4>
-      <p class="text-grey-8">HEIC形式の画像をPNG形式に変換します。</p>
+      <p class="text-sub">HEIC形式の画像をPNG形式に変換します。</p>
 
       <q-card class="q-pa-md">
         <q-file

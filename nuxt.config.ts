@@ -6,6 +6,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      // モバイルのブラウザUIも favicon と同じ青に揃える
+      meta: [{ name: "theme-color", content: "#3a8eba" }],
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },

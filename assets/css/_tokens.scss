@@ -1,30 +1,57 @@
 // ============================================================
-//  miyashiiii.com — Design Tokens  (Palette ⑥ "Greige / Monotone")
-//  Source of truth for the redesign. Import once, globally.
+//  miyashiiii.com — デザイントークン（Blue / favicon基調）
 //
-//  Nuxt + Quasar usage:
-//   - Drop this file at  assets/css/_tokens.scss
-//   - In assets/css/main.scss:  @use "tokens" as *;
-//   - The :root block below also exposes the same values as CSS
-//     custom properties, so plain CSS / <style> blocks can use them.
+//  配色の考え方
+//   - 基準色は favicon の青 #3a8eba（H201 / S52 / L48）。
+//     この色相 201 を全パレットの軸にし、ニュートラル（背景・文字・罫線）も
+//     わずかに同じ青みを含ませて、サイト全体を一つの色相でまとめる。
+//   - 60-30-10 の配分
+//       60% : --bg      うっすら青みのある明るい地色
+//       30% : --surface / --thumb  カード面・サムネイル面
+//       10% : --brand-500 / --brand-600  リンク・強調・アクティブ状態
+//   - コントラストは WCAG 2.1 AA を満たすよう調整済み（本文 4.5:1 以上）。
+//       ink / bg     14.9:1    ink-2 / bg   6.9:1    ink-3 / bg   4.5:1
+//       brand-600 / bg 4.7:1   #fff / brand-600 4.9:1
+//
+//  Nuxt + Quasar での使い方
+//   - assets/css/main.scss で  @use "tokens" as *;
+//   - 下部の :root で同じ値を CSS カスタムプロパティとして公開しているので、
+//     素の CSS や <style> ブロックからも参照できる。
 // ============================================================
 
-// ---- SCSS variables (compile-time) ----
-$bg:          #f3f1ed;  // page background (生成りグレージュ)
-$surface:     #ffffff;  // cards
-$thumb:       #e8e5df;  // thumbnail / illustration disc background
-$ink:         #221f1b;  // primary text
-$ink-2:       #6f6a62;  // secondary text
-$ink-3:       #a39e95;  // tertiary / muted text
-$hair:        #e3dfd8;  // hairline borders
-$hair-2:      #d7d2c8;  // slightly stronger border (chips, hover)
-$accent:      #6b6760;  // warm-grey accent
-$accent-deep: #423f39;  // strong neutral (eyebrow / labels)
-$brand:       #5694b3;  // STEEL BLUE — interactive accent ONLY
-$brand-deep:  #3c6f88;  // steel blue, hover/emphasis
+// ---- ブランドカラー（色相 201 のトーンスケール） ----
+$brand-50:  #f1f8fb;  // 最も淡い青。タグ・チップの地色
+$brand-100: #dbecf5;  // 淡い面、ホバー時の地色
+$brand-200: #b7d9eb;  // 罫線の強調、区切り
+$brand-300: #89bfdc;  // 装飾・グラデーション
+$brand-400: #5ba5cd;  // 明るめの装飾
+$brand-500: #3a8eba;  // ★基準色（favicon と同一）。UI要素・下線
+$brand-600: #2d779f;  // 文字として使える濃さ。リンク・アクティブ地色
+$brand-700: #215d7d;  // ホバー・強調テキスト
+$brand-800: #1c4459;  // 深い青
+$brand-900: #162936;  // 影・最深部
 
-$shadow:    rgba(40,38,33,.16);
-$shadow-lg: rgba(40,38,33,.22);
+// エイリアス（用途で呼べるように）
+$brand:      $brand-500;  // 主要なインタラクティブ色
+$brand-deep: $brand-700;  // ホバー / 強調
+$brand-soft: $brand-50;   // 淡い地色
+
+// ---- ニュートラル（青みを含んだクールグレー） ----
+$bg:       #f7f9fb;  // ページ背景
+$surface:  #ffffff;  // カード面
+$thumb:    #eaf1f5;  // サムネイル / イラストの地色
+$thumb-2:  #d6e3eb;  // グラデーションの終点
+$hair:     #dbe4eb;  // 罫線
+$hair-2:   #c2d1db;  // やや強い罫線（チップ・ホバー）
+$ink:      #19242e;  // 主要テキスト
+$ink-2:    #485865;  // 副次テキスト
+$ink-3:    #647582;  // 補足 / ミュートテキスト
+
+// ---- 半透明・影（青みを帯びさせて全体の色相を揃える） ----
+$header-bg: rgba(247, 249, 251, .82);  // $bg の半透明（sticky ヘッダー）
+$shadow:    rgba(22, 41, 54, .14);
+$shadow-lg: rgba(22, 41, 54, .20);
+$focus:     rgba(58, 142, 186, .40);   // $brand-500 のフォーカスリング
 
 // layout
 $maxw: 1040px;   // content max width
@@ -49,22 +76,50 @@ $dur:      .18s;
 $bp-tablet: 920px;  // 3-col → 2-col
 $bp-mobile: 600px;  // 2-col → 1-col, pad shrinks
 
-// ---- CSS custom properties (run-time) ----
+// ---- CSS カスタムプロパティ（実行時） ----
 :root {
+  --brand-50:  #{$brand-50};
+  --brand-100: #{$brand-100};
+  --brand-200: #{$brand-200};
+  --brand-300: #{$brand-300};
+  --brand-400: #{$brand-400};
+  --brand-500: #{$brand-500};
+  --brand-600: #{$brand-600};
+  --brand-700: #{$brand-700};
+  --brand-800: #{$brand-800};
+  --brand-900: #{$brand-900};
+
+  --brand: #{$brand};
+  --brand-deep: #{$brand-deep};
+  --brand-soft: #{$brand-soft};
+
   --bg: #{$bg};
   --surface: #{$surface};
   --thumb: #{$thumb};
+  --thumb-2: #{$thumb-2};
+  --hair: #{$hair};
+  --hair-2: #{$hair-2};
   --ink: #{$ink};
   --ink2: #{$ink-2};
   --ink3: #{$ink-3};
-  --hair: #{$hair};
-  --hair-2: #{$hair-2};
-  --accent: #{$accent};
-  --accent-deep: #{$accent-deep};
-  --brand: #{$brand};
-  --brand-deep: #{$brand-deep};
+
+  --header-bg: #{$header-bg};
   --shadow: #{$shadow};
   --shadow-lg: #{$shadow-lg};
+  --focus: #{$focus};
+
   --maxw: #{$maxw};
   --pad: #{$pad};
+
+  // Quasar のブランドカラーを上書きして、q-btn などの
+  // ビルトインコンポーネントも同じパレットに揃える
+  --q-primary:   #{$brand-600};
+  --q-secondary: #{$brand-400};
+  --q-accent:    #{$brand-700};
+  --q-dark:      #{$ink};
+  --q-dark-page: #{$brand-900};
+  --q-positive:  #1e7f5c;
+  --q-negative:  #b3261e;
+  --q-info:      #{$brand-500};
+  --q-warning:   #9a6700;
 }

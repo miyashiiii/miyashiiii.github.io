@@ -2,7 +2,7 @@
   <div class="row justify-center q-pa-md">
     <div style="max-width: 640px; width: 100%">
       <h4 class="q-mt-none">文字数カウンター</h4>
-      <p class="text-grey-8">テキストの文字数や単語数をカウントします。</p>
+      <p class="text-sub">テキストの文字数や単語数をカウントします。</p>
 
       <q-card class="q-pa-md">
         <q-input
